@@ -19,7 +19,6 @@ namespace FraudDetectionAPI.Model
 
         }
 
-
         public int Calculate(Person person1, Person person2)
         {
             
@@ -30,10 +29,10 @@ namespace FraudDetectionAPI.Model
                 return matching;
             }
 
-            matching += _otherwiseRules[0].CalculateMaching(person1, person2);
-            matching += _otherwiseRules[1].CalculateMaching(person1, person2);
-            matching += _otherwiseRules[2].CalculateMaching(person1, person2);
-            matching += _otherwiseRules[4].CalculateMaching(person1, person2);
+            foreach (var rule in _otherwiseRules)
+            {
+                matching += rule.CalculateMaching(person1, person2);
+            }
 
             return matching;
         }

@@ -1,16 +1,10 @@
-﻿using FraudDetectionAPI.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace FraudDetectionAPI.Model.Rules
+﻿namespace FraudDetectionAPI.Model.Rules
 {
     public class LastNameRule : IRule
     {
         public int CalculateMaching(Person person1, Person person2)
         {
-            throw new NotImplementedException();
+            return person1.LastName == person2.LastName ? 40 : 0;
         }
     }
 }

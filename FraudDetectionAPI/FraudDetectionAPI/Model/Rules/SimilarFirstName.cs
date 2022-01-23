@@ -1,38 +1,57 @@
-﻿using FraudDetectionAPI.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using FraudDetectionAPI.Service;
 using System.Threading.Tasks;
 
 namespace FraudDetectionAPI.Model.Rules
 {
-    public static class SimilarFirstName
+    public class SimilarFirstName : IRule
     {
-        public static int Evaluate(Person person1, Person person2)
+        private ITableStorageService _storageService;
+        const int similarValue = 15;
+
+
+        public SimilarFirstName(ITableStorageService storageService)
         {
-            var result = 0;
-
-            result = SameInitials(person1.FirstName, person2.FirstName);
-            result = DiminutiveName(person1.FirstName, person2.FirstName);
-            result = SpellingChek(person1.FirstName, person2.FirstName);
-
-            return result;
+            _storageService = storageService;
         }
 
+        public int CalculateMaching(Person person1, Person person2)
+        {
+            if (SameInitials(person1.FirstName, person2.FirstName) > 0)
+            {
+                return similarValue;
+            }
+
+            if (HasDiminutiveNameAsync(person1.FirstName, person2.FirstName).Result > 0)
+            {
+                return similarValue;
+            }
+
+            if (HasPossibleTypo(person1.FirstName, person2.FirstName) > 0)
+            {
+                return similarValue;
+            }
+
+            return 0;
+        }
         private static int SameInitials(string firstName1, string firstName2)
         {
-
             return firstName1[0] == firstName2[0] ? 15 : 0;
         }
-        private static int DiminutiveName(string firstName1, string firstName2)
+        private async Task<int> HasDiminutiveNameAsync(string firstName1, string firstName2)
         {
+            var result = await _storageService.RetrieveAsync(firstName2);
 
-            return firstName1[0] == firstName2[0] ? 15 : 0;
+            if (result == null)
+            {
+                return 0;
+            }
+
+            return firstName1 == result.Diminutive ? 15 : 0;
         }
-        private static int SpellingChek(string firstName1, string firstName2)
+        private static int HasPossibleTypo(string firstName1, string firstName2)
         {
-
-            return firstName1[0] == firstName2[0] ? 15 : 0;
+            var distance = Fastenshtein.Levenshtein.Distance(firstName1, firstName2);
+            return distance == 1 ? 1 : 0;
         }
     }
 }

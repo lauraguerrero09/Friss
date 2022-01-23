@@ -6,7 +6,7 @@ namespace FraudDetectionAPI.Model.Rules
     {
         public int CalculateMaching(Person person1, Person person2)
         {
-            return person1.FirstName == person2.FirstName ? 40 : 0;
+            return person1.FirstName == person2.FirstName ? 20 : 0;
         }
     }
 }
