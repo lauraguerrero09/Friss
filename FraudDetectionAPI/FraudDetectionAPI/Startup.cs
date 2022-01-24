@@ -1,3 +1,4 @@
+using FraudDetectionAPI.Model;
 using FraudDetectionAPI.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,6 +23,9 @@ namespace FraudDetectionAPI
         {
             services.AddControllers();
             services.AddScoped<ITableStorageService, TableStorageService>();
+            services.AddScoped<IMatchingCalculator, MatchingCalculator>();
+            services.AddScoped<IRuleConfigurator, RuleConfigurator>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FraudDetectionApi", Version = "v1", });
