@@ -1,11 +1,5 @@
 ﻿using FraudDetectionAPI.Model;
-using FraudDetectionAPI.Service;
-using FraudDetectionAPI.TableStorage;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace FraudDetectionAPI.Controllers
 {
@@ -13,12 +7,10 @@ namespace FraudDetectionAPI.Controllers
     [Route("[controller]")]
     public class MatchingCalculatorController : ControllerBase
     {
-        private readonly ILogger<MatchingCalculatorController> _logger;
         private readonly IMatchingCalculator _matchingCalculator;
 
-        public MatchingCalculatorController(ILogger<MatchingCalculatorController> logger, IMatchingCalculator matchingCalculator)
+        public MatchingCalculatorController(IMatchingCalculator matchingCalculator)
         {
-            _logger = logger;
             _matchingCalculator = matchingCalculator;
         }
 
