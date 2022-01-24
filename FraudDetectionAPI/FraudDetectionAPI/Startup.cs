@@ -1,7 +1,9 @@
 using FraudDetectionAPI.Model;
 using FraudDetectionAPI.Service;
+using FraudDetectionAPI.TableStorage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,9 +24,10 @@ namespace FraudDetectionAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<ITableStorageService, TableStorageService>();
+            services.AddScoped<ITableStorageService, DiminutiveService>();
             services.AddScoped<IMatchingCalculator, MatchingCalculator>();
             services.AddScoped<IRuleConfigurator, RuleConfigurator>();
+            services.AddScoped<IPersonEntityService, PersonEntityService>();
 
             services.AddSwaggerGen(c =>
             {

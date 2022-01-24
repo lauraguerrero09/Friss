@@ -1,12 +1,11 @@
-﻿using FraudDetectionAPI.Model;
-
-namespace FraudDetectionAPI.Model.Rules
+﻿namespace FraudDetectionAPI.Model.Rules
 {
     public class FirstNameRule : IRule
     {
+        const int MatchingValue = 20;
         public int CalculateMaching(Person person1, Person person2)
         {
-            return person1.FirstName == person2.FirstName ? 20 : 0;
+            return person1.FirstName == person2.FirstName ? MatchingValue : 0;
         }
     }
 }

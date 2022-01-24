@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using FraudDetectionAPI.TableStorage;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace FraudDetectionAPI.Model
@@ -14,6 +15,7 @@ namespace FraudDetectionAPI.Model
 
         public int Calculate(Person person1, Person person2)
         {            
+
             var matching = _rules.FirstOrDefault().CalculateMaching(person1, person2);
 
             if (matching > 0)

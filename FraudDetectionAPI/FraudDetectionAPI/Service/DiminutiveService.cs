@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace FraudDetectionAPI.Service
 {
-    public class TableStorageService : ITableStorageService
+    public class DiminutiveService : ITableStorageService
     {
         private const string TableName = "Diminutive";
         private readonly IConfiguration _configuration;
-        public TableStorageService(IConfiguration configuration)
+        public DiminutiveService(IConfiguration configuration)
         {
             _configuration = configuration;
         }

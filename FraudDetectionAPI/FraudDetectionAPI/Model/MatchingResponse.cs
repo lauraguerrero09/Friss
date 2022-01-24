@@ -1,8 +1,9 @@
+using FraudDetectionAPI.TableStorage;
 using System;
 
 namespace FraudDetectionAPI.Model
 {
-    public class MatchingResult
+    public class MatchingResponse
     {
         public Person Person1 { get; set; }
 

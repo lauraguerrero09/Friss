@@ -1,4 +1,6 @@
 ﻿using FraudDetectionAPI.Model;
+using FraudDetectionAPI.Service;
+using FraudDetectionAPI.TableStorage;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -20,27 +22,11 @@ namespace FraudDetectionAPI.Controllers
             _matchingCalculator = matchingCalculator;
         }
 
-        [HttpGet]
-        public MatchingResult GetMatching([FromQuery] Person person)
+        [HttpPost]
+        public MatchingResponse GetMatching([FromBody] MatchingRequest request)
         {
-            Person p1 = new Person
-            {
-                FirstName = "Laura",
-                LastName = "Guerrero",
-                IdentificationNumber = "19501953",
-                DateOfBirth = new DateTime(2015, 12, 31)
-            };
-
-            Person p2 = new Person
-            {
-                FirstName = person.FirstName,
-                LastName = person.LastName,
-                IdentificationNumber = person.IdentificationNumber,
-                DateOfBirth = person.DateOfBirth
-            };
-
-            var matchingValue = _matchingCalculator.Calculate(p1, p2);
-            var result = new MatchingResult { Person1 = p1, Person2 = p2, Result = matchingValue };
+            var matchingValue = _matchingCalculator.Calculate(request.Person1, request.Person2);
+            var result = new MatchingResponse { Person1 = request.Person1, Person2 = request.Person2, Result = matchingValue };
 
             return result;
         }

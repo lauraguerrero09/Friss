@@ -6,7 +6,7 @@ namespace FraudDetectionAPI.Model.Rules
     public class SimilarFirstName : IRule
     {
         private ITableStorageService _storageService;
-        const int similarValue = 15;
+        const int MatchingValue = 15;
 
 
         public SimilarFirstName(ITableStorageService storageService)
@@ -18,17 +18,17 @@ namespace FraudDetectionAPI.Model.Rules
         {
             if (SameInitials(person1.FirstName, person2.FirstName) > 0)
             {
-                return similarValue;
+                return MatchingValue;
             }
 
             if (HasDiminutiveNameAsync(person1.FirstName, person2.FirstName).Result > 0)
             {
-                return similarValue;
+                return MatchingValue;
             }
 
             if (HasPossibleTypo(person1.FirstName, person2.FirstName) > 0)
             {
-                return similarValue;
+                return MatchingValue;
             }
 
             return 0;
@@ -39,14 +39,14 @@ namespace FraudDetectionAPI.Model.Rules
         }
         private async Task<int> HasDiminutiveNameAsync(string firstName1, string firstName2)
         {
-            var result = await _storageService.RetrieveAsync(firstName2);
+            var result = await _storageService.RetrieveAsync(firstName1);
 
             if (result == null)
             {
                 return 0;
             }
 
-            return firstName1 == result.Diminutive ? 15 : 0;
+            return firstName2 == result.Diminutive ? 15 : 0;
         }
         private static int HasPossibleTypo(string firstName1, string firstName2)
         {
