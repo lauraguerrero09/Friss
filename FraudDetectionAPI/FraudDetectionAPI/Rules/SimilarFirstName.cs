@@ -1,32 +1,32 @@
-﻿using FraudDetectionAPI.Service;
+﻿using FraudDetectionAPI.Model;
+using FraudDetectionAPI.Service;
 using System.Threading.Tasks;
 
-namespace FraudDetectionAPI.Model.Rules
+namespace FraudDetectionAPI.Rules
 {
     public class SimilarFirstName : IRule
     {
-        private ITableStorageService _storageService;
+        private IDiminutiveService _storageService;
         const int MatchingValue = 15;
 
-
-        public SimilarFirstName(ITableStorageService storageService)
+        public SimilarFirstName(IDiminutiveService storageService)
         {
             _storageService = storageService;
         }
 
         public int CalculateMaching(Person person1, Person person2)
         {
-            if (SameInitials(person1.FirstName, person2.FirstName) > 0)
+            if (SameInitials(person1.FirstName.ToLower(), person2.FirstName.ToLower()) > 0)
             {
                 return MatchingValue;
             }
 
-            if (HasDiminutiveNameAsync(person1.FirstName, person2.FirstName).Result > 0)
+            if (HasDiminutiveNameAsync(person1.FirstName.ToLower(), person2.FirstName.ToLower()).Result > 0)
             {
                 return MatchingValue;
             }
 
-            if (HasPossibleTypo(person1.FirstName, person2.FirstName) > 0)
+            if (HasPossibleTypo(person1.FirstName.ToLower(), person2.FirstName.ToLower()) > 0)
             {
                 return MatchingValue;
             }

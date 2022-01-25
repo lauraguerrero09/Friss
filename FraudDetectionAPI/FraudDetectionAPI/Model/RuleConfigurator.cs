@@ -1,6 +1,5 @@
-﻿using FraudDetectionAPI.Model.Rules;
+﻿using FraudDetectionAPI.Rules;
 using FraudDetectionAPI.Service;
-using System;
 using System.Collections.Generic;
 
 namespace FraudDetectionAPI.Model
@@ -13,7 +12,7 @@ namespace FraudDetectionAPI.Model
             return _rules;         
         }
 
-        public RuleConfigurator(ITableStorageService serviceStorage)
+        public RuleConfigurator(IDiminutiveService serviceStorage)
         {
             _rules = new List<IRule>();
             _rules.Add(new IdentificationNumberRule());

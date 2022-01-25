@@ -1,4 +1,6 @@
-﻿namespace FraudDetectionAPI.Model.Rules
+﻿using FraudDetectionAPI.Model;
+
+namespace FraudDetectionAPI.Rules
 {
     public class FirstNameRule : IRule
     {

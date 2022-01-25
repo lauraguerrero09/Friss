@@ -1,12 +1,11 @@
 ﻿using FraudDetectionAPI.TableStorage;
 using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Extensions.Configuration;
-using Microsoft.WindowsAzure.Storage;
 using System.Threading.Tasks;
 
 namespace FraudDetectionAPI.Service
 {
-    public class DiminutiveService : ITableStorageService
+    public class DiminutiveService : IDiminutiveService
     {
         private const string TableName = "Diminutive";
         private readonly IConfiguration _configuration;
@@ -46,7 +45,7 @@ namespace FraudDetectionAPI.Service
         }
     }
 
-    public interface ITableStorageService
+    public interface IDiminutiveService
     {
         Task<DiminutiveEntity> RetrieveAsync(string name);
         Task<DiminutiveEntity> InsertOrMergeAsync(DiminutiveEntity entity);

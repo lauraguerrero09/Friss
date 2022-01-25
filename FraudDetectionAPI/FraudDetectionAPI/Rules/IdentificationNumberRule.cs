@@ -1,6 +1,6 @@
-﻿using FraudDetectionAPI.TableStorage;
+﻿using FraudDetectionAPI.Model;
 
-namespace FraudDetectionAPI.Model.Rules
+namespace FraudDetectionAPI.Rules
 {
     public class IdentificationNumberRule : IRule
     {

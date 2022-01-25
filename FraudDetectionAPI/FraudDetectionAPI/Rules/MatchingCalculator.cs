@@ -1,8 +1,8 @@
-﻿using FraudDetectionAPI.TableStorage;
+﻿using FraudDetectionAPI.Model;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FraudDetectionAPI.Model
+namespace FraudDetectionAPI.Rules
 {
     public class MatchingCalculator : IMatchingCalculator
     {

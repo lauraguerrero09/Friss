@@ -1,13 +1,13 @@
-﻿using FraudDetectionAPI.TableStorage;
+﻿using FraudDetectionAPI.Model;
 
-namespace FraudDetectionAPI.Model.Rules
+namespace FraudDetectionAPI.Rules
 {
     public class LastNameRule : IRule
     {
         const int MatchingValue = 40;
         public int CalculateMaching(Person person1, Person person2)
         {
-            return person1.LastName == person2.LastName ? MatchingValue : 0;
+            return person1.LastName.ToLower() == person2.LastName.ToLower() ? MatchingValue : 0;
         }
     }
 }

@@ -19,8 +19,8 @@ namespace FraudDetectionAPI.TableStorage
         {
             return new PersonEntity
             {
-                FirstName = person.FirstName,
-                LastName = person.LastName,
+                FirstName = person.FirstName.ToLower(),
+                LastName = person.LastName.ToLower(),
                 IdentificationNumber = person.IdentificationNumber,
                 DateOfBirth = person.DateOfBirth,
                 PartitionKey = $"{person.FirstName}.{person.LastName}",

@@ -1,4 +1,5 @@
 ﻿using FraudDetectionAPI.Model;
+using FraudDetectionAPI.Rules;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FraudDetectionAPI.Controllers

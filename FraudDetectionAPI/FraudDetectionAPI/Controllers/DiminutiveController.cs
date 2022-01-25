@@ -10,8 +10,8 @@ namespace FraudDetectionAPI.Controllers
     [ApiController]
     public class DiminutiveController : ControllerBase
     {
-        private readonly ITableStorageService _storageService;
-        public DiminutiveController(ITableStorageService storageService)
+        private readonly IDiminutiveService _storageService;
+        public DiminutiveController(IDiminutiveService storageService)
         {
             _storageService = storageService ?? throw new ArgumentNullException(nameof(storageService));
         }
