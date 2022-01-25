@@ -32,7 +32,7 @@ Similar First Name details ___
 3. To execute the endpoints you have 2 options:
     - Swagger UI: https://localhost:44302/swagger/index.html
     - Postman collection:/PostmanCollection
-4. To load the diminutives in the table storage, use the postman collection(Diminutive PUT) and with a runner tab select the .cvs file diminutive. Location /DiminutiveData
+4. To load the diminutives in the table storage, use the postman collection(Diminutive PUT) and with a runner tab select the .cvs file diminutive. Location /DiminutiveData...Note: please load the diminutives in lower case.
 
 #Things to improve:
 1. Instead of receiving 2 persons in the Matching endpoint, receive only one and compare with the information in Person Table Storage.
