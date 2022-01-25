@@ -25,8 +25,9 @@ Similar First Name details ___
 1. Create Azure Storage Account
 2. Update appsettings.json -> "StorageConnectionString"
 3. To execute the endpoints you have 2 options:
-    - Swagger UI: 
-    - Postman collection:
+    - Swagger UI: https://localhost:44302/swagger/index.html
+    - Postman collection:/PostmanCollection
+4. To load the diminutives in the table storage, use the postman collection(Diminutive PUT) and with a runner tab select the .cvs file diminutive. Location /DiminutiveData
 
 #Unit test and code coverage:
 1. Controllers and bussiness logic were covered by unit test, to avoid side effect in future code edition.
