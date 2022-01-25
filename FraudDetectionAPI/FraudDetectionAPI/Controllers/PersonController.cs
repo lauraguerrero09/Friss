@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FraudDetectionAPI.Controllers
 {
+    /// <summary>
+    /// Person controller is used to store a person in an Azure table storage
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class PersonController : ControllerBase

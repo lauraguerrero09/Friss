@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FraudDetectionAPI.Controllers
 {
+    /// <summary>
+    /// Controller to save and get diminutive based on FirstName
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class DiminutiveController : ControllerBase

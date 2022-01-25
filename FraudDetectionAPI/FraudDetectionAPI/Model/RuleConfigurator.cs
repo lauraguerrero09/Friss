@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace FraudDetectionAPI.Model
 {
+    /// <summary>
+    /// Class that allow the configuration of the rules that needs to be apply and the order of execution.
+    /// </summary>
     public class RuleConfigurator : IRuleConfigurator
     {
         private List<IRule> _rules;

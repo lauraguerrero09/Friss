@@ -22,7 +22,7 @@ namespace FraudDetectionAPITest.Controller
         }
 
         [Fact]
-        public void MatchingValue_Return_MatchingResult_When_Success()
+        public void MatchingController_Return_MatchingResult_When_Success()
         {
             //arrange
             var (p1, p2) = GetPersons();            
@@ -34,7 +34,7 @@ namespace FraudDetectionAPITest.Controller
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
 
             // Act
-            var result = controller.GetMatching(request);
+            var result = controller.Matching(request);
 
             // Assert
             Assert.Equal(40, result.Result);
@@ -43,7 +43,7 @@ namespace FraudDetectionAPITest.Controller
         }
 
         [Fact]
-        public void MatchingValueReturn_NoMatchingValue_When_Person_Null()
+        public void MatchingController_NoMatchingValue_When_Person_Null()
         {
             //arrange
             MatchingRequest request = new MatchingRequest { Person1 = null , Person2 = null};
@@ -53,7 +53,7 @@ namespace FraudDetectionAPITest.Controller
             controller.ControllerContext.HttpContext = new DefaultHttpContext();
 
             // Act
-            var result = controller.GetMatching(request);
+            var result = controller.Matching(request);
 
             // Assert
             Assert.Equal(0, result.Result);

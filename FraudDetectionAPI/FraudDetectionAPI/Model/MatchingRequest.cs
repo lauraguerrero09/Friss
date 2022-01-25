@@ -2,6 +2,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FraudDetectionAPI.Model
 {
+    /// <summary>
+    /// Used by Martching calculator controller to receive person to compared
+    /// </summary>
     public class MatchingRequest
     {
         [Required(ErrorMessage = "Person 1 is required")]

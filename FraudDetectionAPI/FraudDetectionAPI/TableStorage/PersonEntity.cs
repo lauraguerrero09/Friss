@@ -1,6 +1,5 @@
 ﻿using FraudDetectionAPI.Model;
 using Microsoft.Azure.Cosmos.Table;
-using System;
 
 namespace FraudDetectionAPI.TableStorage
 {

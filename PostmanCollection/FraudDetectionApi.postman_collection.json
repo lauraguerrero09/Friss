@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "888eaeeb-99ad-42c0-bf64-87566aea2a71",
+		"name": "FraudDetectionApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Diminutive",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44302/api/diminutive?name={{Name}}&diminutive={{Nickname}}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44302",
+					"path": [
+						"api",
+						"diminutive"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{Name}}"
+						},
+						{
+							"key": "diminutive",
+							"value": "{{Nickname}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Person",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"Juan\",\r\n  \"lastName\": \"Sanchez\",\r\n  \"dateOfBirth\" : \"09/08/1988\",\r\n  \"identificationNumber\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44302/Person/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44302",
+					"path": [
+						"Person",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
