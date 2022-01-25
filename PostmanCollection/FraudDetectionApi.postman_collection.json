@@ -85,6 +85,35 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "MatchingCalculator",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"person1\": {\r\n    \"firstName\": \"Laura\",\r\n    \"lastName\": \"Guerrero\",\r\n    \"identificationNumber\": \"\"\r\n  },\r\n  \"person2\": {\r\n    \"firstName\": \"Lara\",\r\n    \"lastName\": \"Guerrero\",\r\n    \"identificationNumber\": \"\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44302/MatchingCalculator/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44302",
+					"path": [
+						"MatchingCalculator",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
