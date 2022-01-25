@@ -1,6 +1,6 @@
 #Overview
 
-Fraud detection is a .NETCore RESTfull API, that offers 3 controllers with different endpoints and helps to solve the Tecnical challenge assigned by FRISS.
+Fraud detection is a .NETCore RESTfull API, that offers 3 controllers with different endpoints and helps to solve the Tecnical challenge assigned.
 1. PersonController expose a PUTAsync enpoint to store persons in an Azure table storage.
 2. MatchingCalculatorController expose a Matching POST endpoint, to calculate the matching percentage between 2 persons.
 3. DiminutiveController expose 2 endpoinst, PUTAsyn and GETAsyn.
@@ -34,6 +34,3 @@ Similar First Name details ___
 2. The code has 68.92% of coverage focused on business rules and controllers:
   ![image](https://user-images.githubusercontent.com/27976372/150950611-f33a753b-7fb8-470d-a664-87ab051244ae.png)
 
-
-# Friss
-Techical challenge for Friss company
