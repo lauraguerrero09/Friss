@@ -21,6 +21,11 @@ Similar First Name details ___
 1. How to identify Diminutive?, I decided to create a table storage and save a list of diminutive for English Names(Can be done per lenguage) and compare if one of the person first name correspond to a diminutive name. Diminutive controller offer the oportunity to increase the items in the table if is need it. 
 2. How to identify a possible typo in the first name?, I used the algorithm of Levenshtein(Nuget Package) that help me to identify how many characters are different between 2 names.
 
+#Unit test and code coverage:
+1. Controllers and bussiness logic were covered by unit test, to avoid side effect in future code edition.
+2. The code has 68.92% of coverage focused on business rules and controllers:
+  ![image](https://user-images.githubusercontent.com/27976372/150950611-f33a753b-7fb8-470d-a664-87ab051244ae.png)
+    
 #Getting Started
 1. Create Azure Storage Account
 2. Update appsettings.json -> "StorageConnectionString"
@@ -29,8 +34,9 @@ Similar First Name details ___
     - Postman collection:/PostmanCollection
 4. To load the diminutives in the table storage, use the postman collection(Diminutive PUT) and with a runner tab select the .cvs file diminutive. Location /DiminutiveData
 
-#Unit test and code coverage:
-1. Controllers and bussiness logic were covered by unit test, to avoid side effect in future code edition.
-2. The code has 68.92% of coverage focused on business rules and controllers:
-  ![image](https://user-images.githubusercontent.com/27976372/150950611-f33a753b-7fb8-470d-a664-87ab051244ae.png)
+#Things to improve:
+1. Instead of receiving 2 persons in the Matching endpoint, receive only one and compare with the information in Person Table Storage.
+2. Create and enpoint to set the RuleConfigurator order.
+3. Include catche and login.
+4. Create a generic table storage service.
 
